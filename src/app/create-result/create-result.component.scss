@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  h1{
+    text-align: center;
+    color: #3f51b5;
+  }
+  h2{
+    text-align: left;
+    color: #3f51b5;
+    font-size: 20px;
+  }
+
+  .register-link
+{
+    margin-top: 7%;
+    margin-bottom: 7%;
+    margin-left: 59%;
+    color: #3f51b5;
+}
+  
+  .password
+  {
+      margin-top: 5%;
+     
+  }
+
+  mat-select
+  {
+    margin-top: 30px;
+  }
+  .btn-style
+  {
+    margin-top: 20px;
+  }
+  mat-card
+  {
+      margin-top: 5%;
+    margin-bottom: 20px;
+
+  }

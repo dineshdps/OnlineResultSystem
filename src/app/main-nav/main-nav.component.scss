@@ -1,0 +1,31 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: #3f51b5;
+  color: white;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-list-item{
+  color: #3f51b5;
+  font-weight: bold;
+  font-size: 19px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.user-name{
+  text-align: right;
+  margin-left: 1%;
+}
+

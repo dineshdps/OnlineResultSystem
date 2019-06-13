@@ -1,0 +1,38 @@
+<app-main-nav>
+
+  <div class="container">
+   <mat-spinner *ngIf="spinner"></mat-spinner>
+    <div class="bcd" *ngFor="let a of FormatData " >
+    <mat-card>
+      <h2>Exam Format of Year {{a.year}} </h2>
+        <!-- <div class="btech" #year >Exam Format of Year {{a.year}}</div> -->
+        <mat-form-field>
+            <input matInput placeholder="Year" value="{{a.year}}" #year>
+          </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Theory" value="{{a.theory}}" #theory>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Practical" value="{{a.practical}}" #practical>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Internal1" value="{{a.internal1}}" #internal1>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Internal2" value="{{a.internal2}}" #internal2>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="passing percent" value="{{a.passingpercent}}" #passingpercent>
+        </mat-form-field>
+
+      <button mat-raised-button class="btn-style" (click)="createdFormat(year,theory,practical,internal1,internal2,passingpercent)"
+       color="accent">Update</button>
+    </mat-card>
+    </div>
+  
+    
+  </div>
+
+
+
+</app-main-nav>

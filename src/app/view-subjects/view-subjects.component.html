@@ -1,0 +1,58 @@
+<app-main-nav>
+
+  <div class="container">
+
+    <div class="bcd" *ngFor="let a of FormatData">
+      <mat-card>
+        <h2>Subject Format of {{a.semester}} </h2>
+        <!-- <div class="btech" #year >Exam Format of Year {{a.year}}</div> -->
+        <mat-form-field>
+          <input matInput placeholder="Year" value="{{a.year}}" #year>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject1" value="{{a.subject1}}" #theory>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject2" value="{{a.subject2}}" #practical>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject3" value="{{a.subject3}}" #internal1>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject4" value="{{a.subject4}}" #internal2>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject5" value="{{a.subject5}}" #passingpercent>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Year" value="{{a.semester}}" #year>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject1" value="{{a.Practical1}}" #theory>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject2" value="{{a.Practical2}}" #practical>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject3" value="{{a.Practical3}}" #internal1>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject4" value="{{a.Practical4}}" #internal2>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="subject5" value="{{a.Practical5}}" #passingpercent>
+        </mat-form-field>
+
+        <button mat-raised-button class="btn-style"
+          (click)="createdFormat(year,theory,practical,internal1,internal2,passingpercent)"
+          color="accent">Update</button>
+      </mat-card>
+    </div>
+
+
+  </div>
+
+
+
+</app-main-nav>

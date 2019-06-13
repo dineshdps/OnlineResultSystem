@@ -1,0 +1,277 @@
+<app-main-nav>
+
+
+
+  <div class="container">
+    <mat-card *ngIf="change">
+      <div class="example-container">
+        <h1>Create Result</h1>
+
+
+        <mat-form-field>
+          <mat-select placeholder="Select Month" [(value)]="selectMonth">
+            <mat-option value="JANUARY">JANUARY</mat-option>
+            <mat-option value="FEBRUARY">FEBRUARY</mat-option>
+            <mat-option value="MARCH">MARCH</mat-option>
+            <mat-option value="APRIL">APRIL</mat-option>
+            <mat-option value="MAY">MAY</mat-option>
+            <mat-option value="JUNE">JUNE</mat-option>
+            <mat-option value="JULY">JULY</mat-option>
+            <mat-option value="AUGUST">AUGUST</mat-option>
+            <mat-option value="SEPTEMBER">SEPTEMBER</mat-option>
+            <mat-option value="OCTOBER">OCTOBER</mat-option>
+            <mat-option value="NOVEMBER">NOVEMBER</mat-option>
+            <mat-option value="DECEMBER">DECEMBER</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-select placeholder="Select Year" [(value)]=selectYear>
+            <mat-option value="2018">2018</mat-option>
+            <mat-option value="2019">2019</mat-option>
+            <mat-option value="2020">2020</mat-option>
+            <mat-option value="2021">2021</mat-option>
+            <mat-option value="2022">2022</mat-option>
+            <mat-option value="2023">2023</mat-option>
+            <mat-option value="2024">2024</mat-option>
+            <mat-option value="2025">2025</mat-option>
+            <mat-option value="2026">2026</mat-option>
+            <mat-option value="2027">2027</mat-option>
+            <mat-option value="2028">2028</mat-option>
+            <mat-option value="2029">2029</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-select placeholder="Select Semester" [(value)]="selectSem">
+            <mat-option value="semester1">semester1</mat-option>
+            <mat-option value="semester2">semester2</mat-option>
+            <mat-option value="semester3">semester3</mat-option>
+            <mat-option value="semester4">semester4</mat-option>
+            <mat-option value="semester5">semester5</mat-option>
+            <mat-option value="semester6">semester6</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Select pattern" [(value)]="selectPattern">
+            <mat-option value="Regular">Regular</mat-option>
+            <mat-option value="ATKT">ATKT</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button class="btn-style" (click)="ResultData()" color="primary">Submit</button>
+
+      </div>
+
+    </mat-card>
+
+
+    <mat-card *ngIf="abc">
+      <h1>Enter marks of {{selectSem}}({{selectPattern}})</h1>
+    </mat-card>
+
+    <mat-spinner *ngIf="spinner"></mat-spinner>
+    <mat-card *ngIf="abc">
+
+
+      <div class="bcd" *ngFor="let a of FormatData">
+        <div class="bcdf" *ngFor="let b of formatdatas">
+          <form [formGroup]="forms" #resultform="ngForm">
+            <mat-card>
+              <div class="Register">
+                <mat-form-field>
+                  <input matInput placeholder="Firstname" value="{{a.firstname}}" #firstname>
+                  <mat-error>Required*</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Middlename" value="{{a.middlename}}" #middlename>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="lastname" value="{{a.lastname}}" #lastname>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Unique id" value="{{a.UniqueNo}}" #UniqueNo>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="PNRNo" value="{{a.PNRNo}}" #Pnrno>
+                </mat-form-field>
+              </div>
+
+
+              <div class="Register">
+                <mat-form-field>
+                  <input matInput placeholder="subject" value="{{b.subject1}}" #subject1>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal1" [(ngModel)]="internal1subject1" required maxlength="2"
+                    formControlName="int1sub1" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Internal2" [(ngModel)]="internal2subject1" required maxlength="2"
+                    formControlName="int2sub1" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Theory" [(ngModel)]="theorysubject1" required maxlength="2"
+                    formControlName="theorysub1" min="0" max="60">
+                  <mat-hint>Less than 60</mat-hint>
+                  <mat-error>Less than 60</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Practical" [(ngModel)]="practical1" required maxlength="2"
+                    formControlName="pract1" min="0" max="50">
+                  <mat-hint>Less than 50</mat-hint>
+                  <mat-error>Less than 50</mat-error>
+
+                </mat-form-field>
+              </div>
+
+              <div class="Register">
+                <mat-form-field>
+                  <input matInput placeholder="subject" value="{{b.subject2}}" #subject2>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal1" [(ngModel)]="internal1subject2" required maxlength="2"
+                    formControlName="int1sub2" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal2" [(ngModel)]="internal2subject2" required maxlength="2"
+                    formControlName="int2sub2" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Theory" [(ngModel)]="theorysubject2" required maxlength="2"
+                    formControlName="theorysub2" min="0" max="60">
+                  <mat-hint>Less than 60</mat-hint>
+                  <mat-error>Less than 60</mat-error>
+
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Practical" [(ngModel)]="practical2" required maxlength="2"
+                    formControlName="pract2" min="0" max="50">
+                  <mat-hint>Less than 50</mat-hint>
+                  <mat-error>Less than 50</mat-error>
+
+
+                </mat-form-field>
+              </div>
+
+              <div class="Register">
+                <mat-form-field>
+                  <input matInput placeholder="subject" value="{{b.subject3}}" #subject3>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal1" [(ngModel)]="internal1subject3" required maxlength="2"
+                    formControlName="int1sub3" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal2" [(ngModel)]="internal2subject3" required maxlength="2"
+                    formControlName="int2sub3" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Theory" [(ngModel)]="theorysubject3" required maxlength="2"
+                    formControlName="theorysub3" min="0" max="60">
+                  <mat-hint>Less than 60</mat-hint>
+                  <mat-error>Less than 60</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Practical" [(ngModel)]="practical3" required maxlength="2"
+                    formControlName="pract3" min="0" max="50">
+                  <mat-hint>Less than 50</mat-hint>
+                  <mat-error>Less than 50</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="Register">
+                <mat-form-field>
+                  <input matInput placeholder="subject" value="{{b.subject4}}" #subject4>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal1" [(ngModel)]="internal1subject4" required maxlength="2"
+                    formControlName="int1sub4" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Internal2" [(ngModel)]="internal2subject4" required maxlength="2"
+                    formControlName="int2sub4" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Theory" [(ngModel)]="theorysubject4" required maxlength="2"
+                    formControlName="theorysub4" min="0" max="60">
+                  <mat-hint>Less than 60</mat-hint>
+                  <mat-error>Less than 60</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Practical" [(ngModel)]="practical4" required maxlength="2"
+                    formControlName="pract4" min="0" max="50">
+                  <mat-hint>Less than 50</mat-hint>
+                  <mat-error>Less than 50</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="Register">
+                <mat-form-field>
+                  <input matInput placeholder="subject" value="{{b.subject5}}" #subject5>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput placeholder="Internal1" [(ngModel)]="internal1subject5" required maxlength="2"
+                    formControlName="int1sub5" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Internal2" [(ngModel)]="internal2subject5" required maxlength="2"
+                    formControlName="int2sub5" min="0" max="20">
+                  <mat-hint>Less than 20</mat-hint>
+                  <mat-error>Less than 20</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Theory" [(ngModel)]="theorysubject5" required maxlength="2"
+                    formControlName="theorysub5" min="0" max="60">
+                  <mat-hint>Less than 60</mat-hint>
+                  <mat-error>Less than 60</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input matInput placeholder="Practical" [(ngModel)]="practical5" required maxlength="2"
+                    formControlName="pract5" min="0" max="50">
+                  <mat-hint>Less than 50</mat-hint>
+                  <mat-error>Less than 50</mat-error>
+                </mat-form-field>
+              </div>
+
+
+              <button mat-raised-button class="btn-style" color="primary"
+                (click)="Postmarks(firstname,middlename,lastname,UniqueNo,Pnrno,subject1,subject2,subject3,subject4,subject5,resultform)">Submit</button>
+            </mat-card>
+          </form>
+        </div>
+      </div>
+    </mat-card>

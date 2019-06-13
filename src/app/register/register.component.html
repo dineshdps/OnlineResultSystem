@@ -1,0 +1,41 @@
+<div class="container">
+  <mat-card>
+    <div class="example-container">
+      <h1>Sign up</h1>
+      
+        <mat-form-field>
+          <input matInput placeholder="FirstName" [(ngModel)]="Firstname" required>
+          <mat-error>Required*</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Middle" [(ngModel)]="Middlename" required>
+          <mat-error>Required*</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="LastName" [(ngModel)]="Lastname" required>
+          <mat-error>Required*</mat-error>
+        </mat-form-field>
+      
+
+      <mat-form-field>
+        <input matInput placeholder="Username" [(ngModel)]="username" required>
+        <mat-error>Required*</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput class="password" placeholder=" password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password" required minlength="6">
+        <mat-error>Enter more than 6 character or number</mat-error>
+        <mat-hint>At least 6 characters of number</mat-hint>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+
+      <button mat-raised-button class="btn-style" color="primary" (click)="register()">Submit</button>
+
+      <button mat-raised-button class="btn-style" routerLink="/" color="accent">Sign in</button>
+
+    </div>
+
+  </mat-card>
+</div>

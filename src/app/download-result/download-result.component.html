@@ -1,0 +1,293 @@
+<app-main-nav *ngIf="change">
+  <div class="container">
+    <mat-card *ngIf="change">
+      <div class="example-container">
+        <h1>Download-Result</h1>
+
+        <mat-form-field>
+          <mat-select placeholder="Select Year" [(value)]=selectYear>
+            <mat-option value="2019">2019</mat-option>
+            <mat-option value="2020">2020</mat-option>
+            <mat-option value="2021">2021</mat-option>
+            <mat-option value="2022">2022</mat-option>
+            <mat-option value="2023">2023</mat-option>
+            <mat-option value="2024">2024</mat-option>
+            <mat-option value="2025">2025</mat-option>
+            <mat-option value="2026">2026</mat-option>
+            <mat-option value="2027">2027</mat-option>
+            <mat-option value="2028">2028</mat-option>
+            <mat-option value="2029">2029</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-select placeholder="Select Semester" [(value)]="selectSem">
+            <mat-option value="semester1">semester1</mat-option>
+            <mat-option value="semester2">semester2</mat-option>
+            <mat-option value="semester3">semester3</mat-option>
+            <mat-option value="semester4">semester4</mat-option>
+            <mat-option value="semester5">semester5</mat-option>
+            <mat-option value="semester6">semester6</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Select pattern" [(value)]="selectPattern">
+            <mat-option value="Regular">Regular</mat-option>
+            <mat-option value="ATKT">ATKT</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-raised-button class="btn-style" color="primary" (click)="DownloadResult()">View</button>
+
+      </div>
+    </mat-card>
+  </div>
+
+</app-main-nav>
+
+
+
+<div class="container">
+
+  <div class="example-container" *ngIf="show">
+    <mat-card>
+
+      <div class="abc" *ngFor="let b of formatdatas">
+        <div class="abc" *ngFor="let a of FormatData">
+          <mat-card>
+            <table border="1" cellspacing="0">
+
+              <tr>
+                <th colspan="9">PROGRAMME: Bachelor of Science (Information Technology) (B.Sc-IT)</th>
+                <th colspan="8">SEMESTER: {{a.semester}}&nbsp;({{a.pattern}})</th>
+              </tr>
+              <tr>
+                <th>Unique No</th>
+                <th> Reg No</th>
+
+                <th colspan="12">Name of Candidate</th>
+                <th colspan="3">Month & Year examination</th>
+              </tr>
+              <tr>
+                <th>{{a.UniqueNo}}</th>
+                <th> {{a.PNRno}}</th>
+
+                <th colspan="12">{{a.firstname}}&nbsp;{{a.middlename}}&nbsp;{{a.lastname}}</th>
+                <th colspan="3">{{a.month}}&nbsp;{{a.year}}</th>
+              </tr>
+              <tr>
+                <th rowspan="2">Course Code</th>
+                <th colspan="2" rowspan="2">Course Title</th>
+                <th colspan="3">internal Assessment</th>
+                <th colspan="3">Semester exam</th>
+                <th colspan="3">total marks</th>
+                <th rowspan="2">Grade </th>
+                <th rowspan="2">Grade points(G)</th>
+                <th rowspan="2">Credit points(c)</th>
+                <th rowspan="2">CG</th>
+                <th rowspan="2">SGPI</th>
+              </tr>
+              <tr>
+                <th>max marks</th>
+                <th>min marks</th>
+                <th>marks obt</th>
+                <th>max marks</th>
+                <th>min marks</th>
+                <th>marks obt</th>
+                <th>max marks</th>
+                <th>min marks</th>
+                <th>marks obt</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.subject1}}</th>
+                <th>40</th>
+                <th>-</th>
+                <th>26</th>
+                <th>60</th>
+                <th>-</th>
+                <th>{{a.theorysubject1}}</th>
+                <th>100</th>
+                <th>40</th>
+                <th>{{a.subject1total}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+                <th rowspan="10">6.0</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.Practical1}}</th>
+                <th>-</th>
+                <th>-</th>
+                <th>-</th>
+                <th>50</th>
+                <th>-</th>
+                <th>{{a.practical1}}</th>
+                <th>50</th>
+                <th>20</th>
+                <th>{{a.practical1}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.subject2}}</th>
+                <th>40</th>
+                <th>-</th>
+                <th>26</th>
+                <th>60</th>
+                <th>-</th>
+                <th>{{a.theorysubject2}}</th>
+                <th>100</th>
+                <th>40</th>
+                <th>{{a.subject2total}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.Practical2}}</th>
+                <th>-</th>
+                <th>-</th>
+                <th>-</th>
+                <th>50</th>
+                <th>-</th>
+                <th>{{a.practical2}}</th>
+                <th>50</th>
+                <th>20</th>
+                <th>{{a.practical2}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.subject3}}</th>
+                <th>40</th>
+                <th>-</th>
+                <th>26</th>
+                <th>60</th>
+                <th>-</th>
+                <th>{{a.theorysubject3}}</th>
+                <th>100</th>
+                <th>40</th>
+                <th>{{a.subject3total}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.Practical3}}</th>
+                <th>-</th>
+                <th>-</th>
+                <th>-</th>
+                <th>50</th>
+                <th>-</th>
+                <th>{{a.practical3}}</th>
+                <th>50</th>
+                <th>20</th>
+                <th>{{a.practical3}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.subject4}}</th>
+                <th>40</th>
+                <th>-</th>
+                <th>26</th>
+                <th>60</th>
+                <th>-</th>
+                <th>{{a.theorysubject4}}</th>
+                <th>100</th>
+                <th>40</th>
+                <th>{{a.subject4total}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.Practical4}}</th>
+                <th>-</th>
+                <th>-</th>
+                <th>-</th>
+                <th>50</th>
+                <th>-</th>
+                <th>{{a.practical4}}</th>
+                <th>50</th>
+                <th>20</th>
+                <th>{{a.practical4}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.subject5}}</th>
+                <th>40</th>
+                <th>-</th>
+                <th>26</th>
+                <th>60</th>
+                <th>-</th>
+                <th>{{a.theorysubject5}}</th>
+                <th>100</th>
+                <th>40</th>
+                <th >{{a.subject5total}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+              <tr>
+                <th>USIT101</th>
+                <th colspan="2">{{b.Practical5}}</th>
+                <th>-</th>
+                <th>-</th>
+                <th>-</th>
+                <th>50</th>
+                <th>-</th>
+                <th>{{a.practical5}}</th>
+                <th>50</th>
+                <th>20</th>
+                <th>{{a.practical5}}</th>
+                <th>B</th>
+                <th>8</th>
+                <th>2</th>
+                <th>12</th>
+              </tr>
+
+              <tr>
+                <th colspan="8">Result: {{a.result}}</th>
+                <th colspan="6">Credit Earned = 20</th>
+                <th colspan="1">EC=20</th>
+                <th>CG=120</th>
+                <th>SGPI=6.0</th>
+              </tr>
+
+            </table>
+          </mat-card>
+        </div>
+      </div>
+    </mat-card>
+    <button mat-raised-button class="btn-style" (click)="downloadPdf()" color="accent">Download</button>
+    <button mat-raised-button class="btn-style" routerLink="/result" color="primary">Back</button>
+
+
+  </div>
+</div>

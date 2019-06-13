@@ -1,0 +1,32 @@
+<div class="container">
+  <mat-card>
+    <!-- <div class="example-container"> -->
+    <h1>Login</h1>
+    <form #Loginform="ngForm">
+      <div class="example-container">
+        <mat-form-field >
+          <textarea matInput type="email" placeholder="Username" name="username" [(ngModel)]="username"
+            required></textarea>
+            <!-- <mat-error *ngIf="username.invalid">Required in valid*</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput class="password" placeholder="password" name="Password" [type]="hide ? 'password' : 'text'"
+            [(ngModel)]="Password" required minlength="6">
+            <!-- <mat-error *ngIf="password.error.minlength">should be greater tha 6 </mat-error> -->
+            <mat-error>Required*</mat-error>
+
+          <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </mat-form-field>
+
+        <div class="register-link" routerLink="/forget-password">forget password?</div>
+
+        <button mat-raised-button class="btn-style" color="primary" (click)="LoginData(Loginform); ">Sign in</button>
+        <button mat-raised-button class="btn-style" routerLink="/register" color="accent">Sign up</button>
+      </div>
+    </form>
+
+  </mat-card>
+
+
+</div>

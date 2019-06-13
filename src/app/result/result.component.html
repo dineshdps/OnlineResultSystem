@@ -1,0 +1,195 @@
+<app-main-nav>
+  <div class="container">
+    <mat-card>
+      <div class="example-container">
+        <h1>view-Result</h1>
+
+        <mat-form-field>
+          <mat-select placeholder="Select Year" [(value)]=selectYear>
+            <mat-option value="2019">2019</mat-option>
+            <mat-option value="2020">2020</mat-option>
+            <mat-option value="2021">2021</mat-option>
+            <mat-option value="2022">2022</mat-option>
+            <mat-option value="2023">2023</mat-option>
+            <mat-option value="2024">2024</mat-option>
+            <mat-option value="2025">2025</mat-option>
+            <mat-option value="2026">2026</mat-option>
+            <mat-option value="2027">2027</mat-option>
+            <mat-option value="2028">2028</mat-option>
+            <mat-option value="2029">2029</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field>
+          <mat-select placeholder="Select Semester" [(value)]="selectSem">
+            <mat-option value="semester1">semester1</mat-option>
+            <mat-option value="semester2">semester2</mat-option>
+            <mat-option value="semester3">semester3</mat-option>
+            <mat-option value="semester4">semester4</mat-option>
+            <mat-option value="semester5">semester5</mat-option>
+            <mat-option value="semester6">semester6</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Select pattern" [(value)]="selectPattern">
+            <mat-option value="Regular">Regular</mat-option>
+            <mat-option value="ATKT">ATKT</mat-option>
+            <mat-option value="Drop">Drop</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button class="btn-style" color="primary" (click)="viewResult()">View</button>
+      </div>
+    </mat-card>
+
+    <mat-spinner *ngIf="spinner"></mat-spinner>
+    <mat-card *ngIf="viewdata && !spinner">
+      <div class="bcd" *ngFor="let a of FormatData">
+
+        <mat-card>
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="firstname" value="{{a.firstname}}" #Firstname>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="middlename" value="{{a.middlename}}" #Middlename>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="lastname" value="{{a.lastname}}" #Lastname>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="UniqueNo" value="{{a.UniqueNo}}" #uniqueNo>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="PNRno" value="{{a.PNRno}}" #pNRno>
+            </mat-form-field>
+          </div>
+
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="month" value="{{a.month}}" #Month>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="year" value="{{a.year}}" #Year>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="semester" value="{{a.semester}}" #Semester>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="result" value="{{a.result}}" >
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="pattern" value="{{a.pattern}}" #Pattern>
+            </mat-form-field>
+          </div>
+
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="subject" value="{{a.subject1}}" #Subject1>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal1" value="{{a.internal1subject1}}" #Internal1subject1>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal2" value="{{a.internal2subject1}}" #Internal2subject1>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Theory" value="{{a.theorysubject1}}" #Theorysubject1>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Practical" value="{{a.practical1}}" #Practical1>
+            </mat-form-field>
+          </div>
+
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="subject" value="{{a.subject2}}" #Subject2>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal1" value="{{a.internal1subject2}}" #Internal1subject2>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal2" value="{{a.internal2subject2}}" #Internal2subject2>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Theory" value="{{a.theorysubject2}}" #Theorysubject2>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Practical" value="{{a.practical2}}" #Practical2>
+            </mat-form-field>
+          </div>
+
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="subject" value="{{a.subject3}}" #Subject3>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal1" value="{{a.internal1subject3}}" #Internal1subject3>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal2" value="{{a.internal2subject3}}" #Internal2subject3>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Theory" value="{{a.theorysubject3}}" #Theorysubject3>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Practical" value="{{a.practical3}}" #Practical3>
+            </mat-form-field>
+          </div>
+
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="subject" value="{{a.subject4}}" #Subject4>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal1" value="{{a.internal1subject4}}" #Internal1subject4>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal2" value="{{a.internal2subject4}}" #Internal2subject4>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Theory" value="{{a.theorysubject4}}" #Theorysubject4>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Practical" value="{{a.practical4}}" #Practical4>
+            </mat-form-field>
+          </div>
+
+          <div class="Register">
+            <mat-form-field>
+              <input matInput placeholder="subject" value="{{a.subject5}}" #Subject5>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal1" value="{{a.internal1subject5}}" #Internal1subject5>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Internal2" value="{{a.internal2subject5}}" #Internal2subject5>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Theory" value="{{a.theorysubject5}}" #Theorysubject5>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Practical" value="{{a.practical5}}" #Practical5>
+            </mat-form-field>
+          </div>
+
+
+          <button mat-raised-button class="btn-style" color="accent" (click)="Postmarks(
+            Firstname,Middlename,Lastname,uniqueNo,pNRno,   Year,Month,Semester,Pattern, 
+           Internal1subject1,Internal2subject1,Internal1subject2,Internal2subject2,Internal1subject3,Internal2subject3,
+           Internal1subject4,Internal2subject4,Internal1subject5,Internal2subject5,
+           Theorysubject1,Theorysubject2,Theorysubject3,Theorysubject4,Theorysubject5,
+           Practical1,Practical2,Practical3,Practical4,Practical5,
+            Subject1,Subject2,Subject3,Subject4,Subject5
+          )">Update</button>
+        </mat-card>
+
+
+      </div>
+
+    </mat-card>
+
+  </div>
+
+</app-main-nav>
